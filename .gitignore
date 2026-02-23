@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# 가상환경
+.venv/
+venv/
+
+# uv
+# uv.lock은 커밋 권장 (재현 가능한 환경 보장)
+
+# 환경변수
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# pytest / ruff 캐시
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
