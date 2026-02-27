@@ -1,7 +1,35 @@
 # Week 8 — Compose 운영 고도화(로컬 운영)
 
 ## 🎯 목표
-Docker Compose를 운영 수준으로 고도화하고, Makefile로 명령을 단순화하여 전체 스택 로컬 기동을 달성한다.
+
+Docker Compose를 **운영 수준**으로 고도화하고, Makefile로 명령을 단순화해 **전체 스택 로컬 기동**을 달성한다.  
+기동 순서(healthcheck·depends_on), 데이터 영속화(volume), 일상 명령(make up / make test)을 정리한다.
+
+---
+
+## ✅ 이번 주를 마치면 얻는 것
+
+- **Compose 고도화**: 모든 서비스 healthcheck, `depends_on` + service_healthy, named volume으로 DB 데이터 유지.
+- **네트워크**: 커스텀 네트워크로 서비스 간 통신 구간 명확히 하기.
+- **Makefile**: `make up`, `make down`, `make test`, `make logs` 등으로 로컬 운영을 한 줄 명령으로 정리.
+- **(선택) 서비스별 DB 분리**: auth/catalog 등 서비스가 자기 DB만 쓰도록 구성하는 방법.
+
+---
+
+## 📁 코드 위치
+
+- **Compose·Makefile**: 프로젝트 루트의 `docker-compose.yml`, `Makefile`.  
+- **앱 코드**: 기존 `app/` 유지. 이번 주는 인프라·명령 정리에 집중.  
+- `week08/` 폴더에는 이 README만 둔다. [루트 README](../README.md) 참고.
+
+---
+
+## 📋 진행 순서
+
+1. **Compose**: 각 서비스에 healthcheck, depends_on(condition: service_healthy), named volume, 커스텀 네트워크 추가.
+2. **Makefile**: up / down / test / logs / build 타깃 작성 후 동작 확인.
+3. **검증**: `make up` → 전체 기동·헬스체크 통과, 재시작 후 DB 데이터 유지 확인.
+4. **(선택) 서비스별 DB 분리** 구현.
 
 ---
 
@@ -27,6 +55,8 @@ Docker Compose를 운영 수준으로 고도화하고, Makefile로 명령을 단
 ### 약점 복습
 - [ ] Week 3~7 중 틀렸던 문제 다시 풀기
 - [ ] 복잡도 분석 재확인
+
+**📤 제출**: 풀이 코드와 접근법·복잡도 정리는 **`coding-test/week08/`** 에 둡니다. (자세한 규칙은 [week01 README](week01/README.md)의 「📤 코테 과제 제출 방법」 참고.)
 
 ---
 
